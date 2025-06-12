@@ -1,0 +1,24 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2025-06-12T13:10:43+01:00",
+  "id": "problem-02",
+  "duration": 0,
+  "title": "Problem Solving: Which Elevator?",
+  "summary": "Problem Solving: Which Elevator",
+  "source": "Elevators.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "coding"
+  ],
+  "tags": [
+    "web"
+  ],
+  "feedback": "mailto:a.j.beaumont@aston.ac.uk",
+  "url": "problem-02"
+}

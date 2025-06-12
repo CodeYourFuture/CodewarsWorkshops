@@ -1,0 +1,277 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Problem Solving: How much Toast?</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style><link rel='stylesheet' href='cyfCodelab.css'/>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="problem-01"
+                  title="Problem Solving: How much Toast?"
+                  environment="web"
+                  feedback-link="mailto:a.j.beaumont@aston.ac.uk">
+    
+      <google-codelab-step label="Introduction" duration="0">
+        <p>This series of problem solving exercises are based on problems found on Codewars <a href="https://www.codewars.com/" target="_blank">https://www.codewars.com/</a> or Hackerank <a href="https://www.hackerrank.com/dashboard" target="_blank">https://www.hackerrank.com/dashboard</a>.</p>
+<h2 is-upgraded>What you should already know</h2>
+<p>This is the first problem in the course.  There is no need for any prior knowledge.</p>
+<h2 class="checklist" is-upgraded>What you&#39;ll learn</h2>
+<ul class="checklist">
+<li>How to use <strong>abstraction</strong> to identify the key elements of the problem</li>
+<li>How to use <strong>decomposition</strong> to break the problem down into smaller, easier problems.</li>
+<li>How to manage <strong>complexity</strong>.</li>
+</ul>
+<h2 is-upgraded>What you&#39;ll need</h2>
+<p>No specific tools are required, although you will need to make notes so either:</p>
+<ul>
+<li>pencil and paper</li>
+<li>text editor on your laptop.</li>
+</ul>
+<h2 is-upgraded>What you&#39;ll do</h2>
+<p>You will be presented with a problem.  You will learn how to understand the problem and break the problem down into steps that help you work towards a solution.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Problem Description" duration="0">
+        <p>Todays problem can be found here: <a href="https://www.codewars.com/kata/5834fec22fb0ba7d080000e8" target="_blank">https://www.codewars.com/kata/5834fec22fb0ba7d080000e8</a>.</p>
+<p>After the class finishes, you should submit a solution to the problem using the link above.</p>
+<h2 is-upgraded>Story</h2>
+<p>You are going to make toast fast, you think that you should make multiple pieces of toasts and once. So, you try to make 6 pieces of toast at once using all the toasters available.</p>
+<h2 is-upgraded>Problem</h2>
+<p>You forgot to count the number of toast you put in there, you don&#39;t know if you put exactly six pieces of toast into the toasters.</p>
+<p>Define a function that counts how many more (or less) pieces of toast you need in the toasters. Even though you need more or less, the number will still be positive, not negative.</p>
+<h2 is-upgraded>Examples:</h2>
+<p>You must return the number of toast the you need to put in (or to take out). In case of <code>5</code> you can still put <code>1</code> toast in:</p>
+<pre>5 --&gt; 1
+</pre>
+<p>And in case of <code>12</code> you need <code>6</code> toasts less (but <strong>not </strong><code>-6</code>):</p>
+<pre>12 --&gt; 6
+</pre>
+<h2 is-upgraded>Code Template</h2>
+<pre><code>function sixToast(num) {
+  // you code goes below this line
+  
+}
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Understanding the language used in the problem description" duration="0">
+        <p>The first step in solving any problem is understanding that problem.</p>
+<ol type="1">
+<li>Are there any words or phrases in the problem description that you don&#39;t understand?  If so, write them down and find out what they mean.</li>
+</ol>
+<p>When you are sure that you know the meaning of all the words or phrases in the problem desicription, move on to the next step.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Identify what is important" duration="0">
+        <p>This next step is called using <strong>abstraction</strong>.  That is just a fancy word for the process of filtering out - ignoring - the characteristics of problems that are not needed in order to concentrate on those that are needed. It is also the filtering out of specific details. From this, we can create an idea of what is to be solved (see <a href="https://www.bbc.co.uk/bitesize/guides/zmhpfcw/revision/1" target="_blank">https://www.bbc.co.uk/bitesize/guides/zmhpfcw/revision/1</a> for more information).</p>
+<ol type="1">
+<li>Identify the parts of the problem description that are important for our solution and the parts we can just ignore.  Here are some hints to guide you: <ol type="1">
+<li>Is the toast important?</li>
+<li>Are the toasters important?</li>
+<li>Are there any input values we need to use, if so what?</li>
+<li>What is the output value we are being asked to create?</li>
+<li>Are there any values apart from the input and output that are important?</li>
+<li>Is there anything that might be difficult?</li>
+</ol>
+</li>
+</ol>
+<p>Make a note of each important piece of information you have identified that is important to the problem description.</p>
+<p><strong>Discuss your solution to this step as a group</strong>.  Does everyone have the same list of important elements or are there differences?  Resolve your differences so everyone agrees what is important.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Important characteristics of the problem" duration="0">
+        <p>When we solve problems with code, there is often <strong>input</strong> that is required.  Input is data that changes depending on the circumstances.</p>
+<p>For each set of input, our solution should <code>return</code> an <strong>output</strong> value.  The output is what you might describe as the &#34;correct answer given the input&#34;.</p>
+<ul>
+<li>We have an input value which is referred to in the code template as <code>num</code></li>
+<li>We are comparing the input to the value ‘6&#39;.</li>
+<li>Our output is a number which tells by how much the value of <code>num</code> is bigger than, or smaller than, <code>6</code>.</li>
+<li>The output is always a positive number.  Actually this aspect is the &#34;difficult&#34; part of this problem.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Understand the examples" duration="0">
+        <p>The problem description almost always has some examples that show various different problem <strong>inputs</strong> and the <strong>output</strong> that goes with each input.</p>
+<ol type="1">
+<li>Look at the examples that are provided.  Can you explain how the output was generated from the input?</li>
+<li>Make a new version of each example that has different input and provide the output that should result from that input.</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Explanation of the examples." duration="0">
+        <h2 is-upgraded>Example one</h2>
+<p>The first example is this one:</p>
+<pre>5 --&gt; 1
+</pre>
+<p>The <strong>input</strong> value that we are calling <code>num</code>, is <code>5</code> and the <strong>output</strong> value is <code>1</code>.  We can compute the output by calculating the result of <code>6 - num</code> which becomes <code>6 - 5</code> which gives the output value <code>1</code>.</p>
+<h2 is-upgraded>Example two</h2>
+<p>The second example is:</p>
+<pre>12 --&gt; 6
+</pre>
+<p>The <strong>input</strong> value that we are calling <code>num</code>, is <code>12</code> and the <strong>output</strong> value is <code>6</code>.  If we follow the same process as the first example we get <code>6 - num</code> which becomes <code>6 - 12</code> which gives us the (incorrect) result <code>-6</code>.  To get to the correct answer we need to turn <code>-6</code> into <code>6</code> (multiply by <code>-1</code>).</p>
+<h2 is-upgraded>Two more examples</h2>
+<ul>
+<li>This is another version of the first example: <pre>2 --&gt; 4
+</pre>
+</li>
+<li>Here is another version of the second problem: <pre>9 --&gt; 3
+</pre>
+</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Break down the problem" duration="0">
+        <p>It often helps to <strong>decompose</strong> the problem into smaller problems.  We call this step <strong>decomposition</strong>.</p>
+<ol type="1">
+<li>From your analysis of the examples, can you spot TWO different cases or sub-problems within this problem?</li>
+<li>Discuss the two different cases within your class.  Is one case easier than the other?</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="The two different cases" duration="0">
+        <ul>
+<li>In the first example, the <strong>input</strong> value <code>num</code> is less than <code>6</code>.  The solution is obtained by the formula <code>6 - num</code>.</li>
+<li>In the second example, the <strong>input</strong> value <code>num</code> is greater than <code>6</code>.  The solution is more complicated because we either need to calculate <code>num - 6</code> OR calculate <code>6 - num</code> and multiply the result by <code>-1</code>.</li>
+</ul>
+<p>The second case is &#34;more difficult&#34; in that we need to do something different to the &#34;easier&#34; first case.</p>
+<p>Are there any other cases?  What if <code>num</code> is equal to <code>6</code>?</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Starting to develop a solution" duration="0">
+        <p>It is acceptable (and often important) to solve the decomposed smaller problems one by one.  In this first step we will develop a solution that works ONLY in the case that <code>num</code> is less than <code>6</code>.</p>
+<p>It is important to note that up until now there has been no programming code written or even mentioned.  There was a bit of mathematics involved in calculating the result.</p>
+<p>When we develop a solution we often use <strong>pseudo-code</strong>.  This is a cross between program code where that code is easy to write and an English description when the step is not easy to write in one program code statement.</p>
+<ol type="1">
+<li>Here is a partly finished pseudo-code solution to the easier part of the problem:<pre>return __________
+</pre>
+Fill in the gap in the example above.  Don&#39;t worry about getting the code correct, just fill in what the step needs to achieve using English.</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="A plan for the solution" duration="0">
+        <p>Here is the pseudo-code with the gaps filled in:</p>
+<pre><code language="language-javascript" class="language-javascript">return 6 - num
+</code></pre>
+<p>We could put this solution into the training step on Codewars and we may see that sometimes it produces the correct output and passes a test and other cases it produces the wrong output and fails a test.  That behaviour is ok, we expected that.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Improving the solution" duration="0">
+        <p>To improve our solution we need to include a check in our solution to identify whether we are solving the simple case when <code>num</code> is less than <code>6</code>, or not.</p>
+<ol type="1">
+<li>Write a new version of our plan that includes an <code>if</code> statement that checks whether <code>num</code> is less than 6 and when that condition is true returns the value of <code>num - 6</code>.</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Improved solution" duration="0">
+        <p>Here is some improved pseudo-code.  <strong>Note</strong> that <code>is less than</code> is not valid Javascript but while we are beginners, we won&#39;t worry yet about the correct Javascript code for the statement :</p>
+<pre>if (num is less than 6) {
+	return 6 - num
+}
+</pre>
+<p>We can use this new version in the Codewars training screen after translating <code>is less than</code> into correct Javascript.  Although the solution is improved, it may not pass more tests.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Solving the second case" duration="0">
+        <p>Our solution so far detects the easier case and returns the correct value for that case.  Here we develop a solution for the alternative case.</p>
+<ol type="1">
+<li>Complete the following:<pre>if (num is less than 6) {
+	return 6 - num
+} else {
+	const difference = 6 - num;
+	return ______________________
+}
+</pre>
+</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="A plan for the second case" duration="0">
+        <p>Here is our complete plan for a solution in pseudo-code:</p>
+<pre>if (num is less than 6) {
+	return 6 - num
+} else {
+	const difference = 6 - num;
+	return difference * -1;
+}
+</pre>
+<p>We will stop here.</p>
+<p>Later, in your own time:</p>
+<ul>
+<li>Turn this plan into actual code and test your solution code here: <a href="https://www.codewars.com/kata/5834fec22fb0ba7d080000e8" target="_blank">https://www.codewars.com/kata/5834fec22fb0ba7d080000e8</a></li>
+<li>Do some research into the function <code>Math.abs</code> and try to come up with a neater solution.</li>
+<li><strong>Challenge</strong>:  Can you use <code>Math.abs</code> to come up with a version that doesn&#39;t have an <code>if</code> statement?</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Summary" duration="0">
+        <p>There were a lot of steps into solving this problem.  They were important.</p>
+<ul>
+<li>Abstraction was useful to identify the problem.  It turns out toast and toasters are irrelevant.</li>
+<li>Decomposition allowed us to develop a pseudo-code solution in a sequence of steps.</li>
+<li>Our first &#34;solution&#34; was a simple one that only gives the correct solution in some case.  Creating an interim partial solution like this is fine.</li>
+<li>Improving a partial solution often means adding complexity.  If we add that complexity slowly, step by step, the complexity is easier to manage.</li>
+<li>We can write pseudo-code to plan our actual solution without worrying about correct code.</li>
+<li>Do not be tempted to add complexity too quickly.</li>
+<li>You can always improve a simple solution that gives correct answers sometimes.  It is more difficult to fix a more complex and broken solution that doesn&#39;t produce any output.</li>
+<li>You might eventually be able to rewrite your solution to create a neat one line solution, but your aim must always be to create a <strong>working</strong> solution rather than a &#34;smart one line&#34; solution.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/claat-public/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/prettify.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>

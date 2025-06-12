@@ -1,0 +1,294 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Problem Solving: Which Elevator?</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style><link rel='stylesheet' href='cyfCodelab.css'/>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="problem-02"
+                  title="Problem Solving: Which Elevator?"
+                  environment="web"
+                  feedback-link="mailto:a.j.beaumont@aston.ac.uk">
+    
+      <google-codelab-step label="Introduction" duration="0">
+        <p>This series of problem solving exercises are based on problems found on Codewars <a href="https://www.codewars.com/" target="_blank">https://www.codewars.com/</a> or Hackerank <a href="https://www.hackerrank.com/dashboard" target="_blank">https://www.hackerrank.com/dashboard</a>.</p>
+<h2 is-upgraded>What you should already know</h2>
+<p>You should have attended the previous session on problem solving where we introduced the concepts of abstraction and decomposition.  We will revisit these concepts again today.</p>
+<h2 class="checklist" is-upgraded>What you&#39;ll learn</h2>
+<ul class="checklist">
+<li>How to use <strong>abstraction</strong> to reduce a problem to its important factors</li>
+<li>How to use <strong>decomposition</strong> to break down a problem into smaller, easier problems that can be solved independently</li>
+</ul>
+<h2 is-upgraded>What you&#39;ll need</h2>
+<p>No specific tools are required, although you will need to make notes so either pencil and paper or a text editor on your laptop.</p>
+<h2 is-upgraded>What you&#39;ll do</h2>
+<p>You will be presented with a problem.  You will learn how to understand the problem and break the problem down into steps that help you work towards a solution.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Problem Description" duration="0">
+        <p>Todays problem can be found here: <a href="https://www.codewars.com/kata/5c374b346a5d0f77af500a5a" target="_blank">https://www.codewars.com/kata/5c374b346a5d0f77af500a5a</a>.</p>
+<p>After the class finishes, you should submit a solution to the problem using the link above.</p>
+<h2 is-upgraded>Story</h2>
+<p>Closest Elevator.  Given the floors of 2 elevators and a calling floor, return the elevator closest to the calling floor.</p>
+<h2 is-upgraded>Problem</h2>
+<p>Given 2 elevators (named &#34;left&#34; and &#34;right&#34;) in a building with 3 floors (numbered 0 to 2), write a function accepting 3 arguments (in order):</p>
+<ul>
+<li><code>left</code> - The current floor of the left elevator</li>
+<li><code>right</code> - The current floor of the right elevator</li>
+<li><code>call</code> - The floor that called an elevator</li>
+</ul>
+<p>Your function should <code>return</code> the name of the elevator closest to the called floor (&#34;left&#34;/&#34;right&#34;).</p>
+<p>In the case where both elevators are equally distant from the called floor, choose the elevator to the right.</p>
+<p>You can assume that the inputs will always be valid integers between 0-2.</p>
+<h2 is-upgraded>Examples:</h2>
+<p>Here are some examples of the input with the result that is returned in each case:</p>
+<pre><code>left right call   result
+  0    1     0    &#34;left&#34;
+  0    1     1    &#34;right&#34;
+  0    1     2    &#34;right&#34;
+  0    0     0    &#34;right&#34;
+  0    2     1    &#34;right&#34;
+</code></pre>
+<h2 is-upgraded>Code Template</h2>
+<pre><code>function elevator(left, right, call){
+  // Your code will go here
+}
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Understanding the problem" duration="0">
+        <p>The first step in solving any problem is understanding that problem.</p>
+<p>We are not solving the problem here, we are just ensuring we understand what the problem is before we think about solving it.</p>
+<ol type="1">
+<li>Are there any words or phrases in the problem description that you don&#39;t understand?  If so, write them down and find out what they mean.</li>
+<li>Do you have any questions about the problem?  If so, make a note of them and ask a volunteer.</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Identify what is important" duration="0">
+        <ol type="1">
+<li>Make a list of all the aspects of this problem that are important.  Ignore anything that is not essential to solving the problem.</li>
+</ol>
+<p><strong>Discuss your solution to this step as a group</strong>.  Does everyone have the same list of important elements or are there differences?  Resolve your differences so everyone agrees what is important.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Important characteristics of the problem" duration="0">
+        <p>In this problem, there are really only three pieces of information that are important:</p>
+<ul>
+<li>the floor number of the left hand lift</li>
+<li>the floor number of the right hand lift</li>
+<li>the floor number calling the lift.</li>
+</ul>
+<p>These three numbers correspond to our <strong>input</strong>.</p>
+<p>The <strong>return</strong> value will be one of two different strings; <code>"left"</code> or <code>"right"</code>.</p>
+<p>Reducing the problem to our three input values, which are all numbers in the range 0 to 2, is an example of <strong>abstraction</strong>.  We can &#34;forget&#34; the stuff about elevators and floors, we are reducing the problem to a comparison of three numbers.</p>
+<p>How we do that comparison is something we will look at in the next steps.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Understand the examples" duration="0">
+        <p>The instructions provide us with no less than five examples.  Here they are again:</p>
+<pre><code>left right call   result
+  0    1     0    &#34;left&#34;
+  0    1     1    &#34;right&#34;
+  0    1     2    &#34;right&#34;
+  0    0     0    &#34;right&#34;
+  0    2     1    &#34;right&#34;
+</code></pre>
+<ol type="1">
+<li>Look at the examples that are provided.  Can you explain how and/or why the output was generated from the input?</li>
+<li>Make a new example that has different input and provide the output that should result from that input.</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Explanation of the examples." duration="0">
+        <h2 is-upgraded>Example one</h2>
+<pre><code>left right call   result
+  0    1     0    &#34;left&#34;
+</code></pre>
+<p>In this example, <code>left</code> and <code>call</code> are equal, <code>right</code> is larger than <code>call</code>, so <code>"left"</code> is returned because the left lift is closest (in this case the same as) the calling floor.</p>
+<p>This example is important because it allows us to see three example input numbers and we should have noticed that we need to find whether <code>call</code> is closer to <code>left</code> or closer to <code>right</code>.  We can perform the following two calculations that will help us:</p>
+<pre><code>call - left = 0
+call - right = -1
+</code></pre>
+<p>We should make a note that if the result of either calculation is 0, it means the lift is being called from the same floor. Therefore, we return <code>"left"</code> in this case because the value of <code>call</code> and <code>left</code> are identical.</p>
+<h2 is-upgraded>Example two</h2>
+<pre><code>left right call   result
+  0    1     1    &#34;right&#34;
+</code></pre>
+<p>Lets do the same calculations:</p>
+<pre><code>call - left = 1
+call - right = 0
+</code></pre>
+<p>We get a value of 0 from the second calculation so, the returned value is <code>"right"</code>.</p>
+<h2 is-upgraded>Example three</h2>
+<pre><code>left right call   result
+  0    1     2    &#34;right&#34;
+</code></pre>
+<p>The calculations this time give us:</p>
+<pre><code>call - left = 2
+call - right = 1
+</code></pre>
+<p>The values show that the right hand lift is closest so we return <code>"right"</code>.</p>
+<h2 is-upgraded>Example four</h2>
+<pre><code>left right call   result
+  0    0     0    &#34;right&#34;
+</code></pre>
+<p>The calculations this time are:</p>
+<pre><code>call - left = 0
+call - right = 0
+</code></pre>
+<p>Both calculations give us the same value, <code>0</code>.  In this case, a condition of the problem comes into play.  The problem description says:</p>
+<pre>In the case where both elevators are equally distant from the called floor, choose the elevator to the right.
+</pre>
+<p>so for this case, we should return <code>"right"</code>.</p>
+<h2 is-upgraded>Example five</h2>
+<pre><code>left right call   result
+  0    2     1    &#34;right&#34;
+</code></pre>
+<p>Our calculations this time give us the following values:</p>
+<pre><code>call - left = 1
+call - right = -1
+</code></pre>
+<p>In terms of &#34;how far away&#34;, <code>1</code> and <code>-1</code> are actually identical.  A value of <code>1</code> means &#34;one floor down&#34; and a value of <code>-1</code> means &#34;one floor up.</p>
+<p>This example is important.  It tells us TWO things:</p>
+<ol type="I">
+<li>The minus value isn&#39;t really important, we need the <strong>absolute value</strong> of the difference between the calling floor and the lift floor.  The absolute value of -1 is 1.<br>Can you find a Javascript function that, given a number, will return its absolute value? We might need that later.</li>
+<li>This is just another case of the previous example when we compare the two absolute values because comparing absolute values gives us <code>1</code> compared with <code>1</code>. The two elevators are equally distant, so the right elevator should be chosen.</li>
+</ol>
+<p>We should return <code>"right"</code> in this example.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Decomposing the problem" duration="0">
+        <ol type="1">
+<li>Can you decompose this problem into the TWO steps required so deliver the correct return value?<br> Describe your decomposition in English without any reference to programming code of any kind, although you might want to use variable names to refer to certain values.</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Our decomposition" duration="0">
+        <p>There are actually two steps to the solution to this problem and these are:</p>
+<ol type="1">
+<li>Do the calculations to find the difference between <code>call</code>and <code>left</code> and <code>call</code> and <code>right</code>.  This gives us two numbers, and we will refer to them as <code>differenceLeft</code> and <code>differenceRight</code>.</li>
+<li>Make a decision based on comparing <code>differenceLeft</code> with <code>differenceRight</code> and return either <code>"left"</code> or <code>"right"</code>.</li>
+</ol>
+<p>In step <strong>1</strong> the names we chose to refer the the results of the calculations are not important.  What is important is that we read the name and know immediately what it is referring to.</p>
+<p>Breaking down the problem into these TWO steps is important because we can solve each step independently.  Each step is a simpler problem than the whole problem.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Developing a solution to step 1" duration="0">
+        <ol type="1">
+<li>Write the Javascript code to find the values of the two variables, <code>differenceLeft</code> and <code>differenceRight</code>.  Be sure to remember everything we discovered when we looked at the examples.</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="A solution to step 1." duration="0">
+        <p>Here is the code you should have written:</p>
+<pre><code language="language-javascript" class="language-javascript">const differenceLeft = Math.abs(call - left);
+const differenceRight = Math.abs(call - right);
+</code></pre>
+<p>We might add a <code>console.log</code> statement to print out the values of the two variables so we can check they look correct.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="More on developing a solution: Step 2" duration="0">
+        <p>After a few minutes to allow everyone to come to their own conclusions, go around the class and get answers to the following:</p>
+<ol type="1">
+<li>Can you describe the decision based on <code>differenceLeft</code> and <code>differenceRight</code> that needs to be made in order to determine whether the returned result should be <code>"left"</code> or <code>"right"</code>? <ul>
+<li>If you can&#39;t describe in English what the decision is, you can&#39;t write it in Javascript.</li>
+<li>In Javascript a decision may be translated into an <code>if</code> statement.</li>
+</ul>
+</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="A design for step 2" duration="0">
+        <p>The decision is this.</p>
+<pre>IF the value of differenceRight is less than or equal to the value of differenceLeft THEN
+	return &#34;right&#34;
+ELSE
+	return &#34;left&#34;
+</pre>
+<ol type="1">
+<li>Translate our design for step 2 into Javascript.</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Implementing step 2" duration="0">
+        <p>Here is a translation of our design into code:</p>
+<pre><code language="language-javascript" class="language-javascript">if (differenceRight &lt;= differenceLeft) {
+	return &#34;right&#34;;
+} else {
+	return &#34;left&#34;;
+}
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Summary" duration="0">
+        <ul>
+<li>We solved this problem by using <strong>abstraction</strong> and <strong>decomposition</strong></li>
+<li>Using abstraction we reduced the problem description down to a comparison of three numbers and that comparison gave us two values.</li>
+<li>Using decomposion allowed us to identify two steps required to solve the problem:<ul>
+<li>calculate the differences</li>
+<li>make a decision on what value to return</li>
+</ul>
+Each step could be solved separately and then put together to give a working solution.</li>
+<li>Our eventual solution is simpler than the analysis of the five examples might have suggested.  That is a good reason why we didn&#39;t write any code until we had completed our problem abstraction and decomposition.</li>
+</ul>
+<p>Be sure to submit your solution on codewars.</p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/claat-public/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/prettify.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>
