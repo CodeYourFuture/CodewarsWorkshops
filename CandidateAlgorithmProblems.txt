@@ -1,0 +1,62 @@
+Making 6 pieces of toast
+You are going to make toast fast, you think that you should make multiple pieces of toasts and once. So, you try to make 6 pieces of toast.
+https://www.codewars.com/kata/5834fec22fb0ba7d080000e8
+
+Make a list of all the integers between 1 and N
+https://www.codewars.com/kata/56f69d9f9400f508fb000ba7
+
+Make a list of all the integers between A and B where A < B
+https://www.codewars.com/kata/55ecd718f46fba02e5000029
+
+Divisible by.  Complete the function which takes two arguments and returns all numbers which are divisible by the given divisor. First argument is a list of numbers and the second is the divisor.
+https://www.codewars.com/kata/55edaba99da3a9c84000003b
+
+Draw stairs.  Given a number n, draw stairs using the letter "I", n tall and n wide, with the tallest in the top left.
+For example n = 3 result in:
+"I\n I\n  I"
+https://www.codewars.com/kata/5b4e779c578c6a898e0005c5
+
+Closest Elevator.  Given the floors of 2 elevators and a calling floor, return the elevator closest to the calling floor.
+https://www.codewars.com/kata/5c374b346a5d0f77af500a5a
+
+Get Nth Even Number.  The first even number is 0.
+https://www.codewars.com/kata/5933a1f8552bc2750a0000ed
+
+Convert to Binary.  Given a non-negative integer b, write a function which returns an integer d such that the binary representation of b is the same as the decimal representation of d.
+https://www.codewars.com/kata/59fca81a5712f9fa4700159a
+
+One for beginners to think about:
+Chuck Norris VII - True or False? (Beginner)
+https://www.codewars.com/kata/570669d8cb7293a2d1001473/train/javascript
+
+
+
+Step 1.  Read the instructions on codewars.  Do you understand what is being asked?  Are there any words you don't understand?  Can we separate the key information from the "story"/"context" information?
+Step 2.  Look at the examples, you you understand the input and the output?  Describe what is input and what is output.
+Step 3.  Work through the examples to check that you understand how the input/output relates to the problem statement.  Come up with at least ONE more example of correct input/output of your own.
+Step 4.  In addition to the input and output, what else do we need to keep track of?
+
+Step 5.  Can we come up with a sequence of steps that solve the problem?  These steps should take the input and generate the output.  DO NOT WRITE CODE.
+
+From step 5 onwards, break down large problems into smaller ones.  Start with a sequence of steps that solve a subset of the problem (the simplest case of In/Out).  Start with a simple scenario.
+
+Example - The elevator problem.
+What is the simplest case we can consider?  I would say left=right is the simplest case, we always return "right".
+Consider the case where left and right are equal: left=1, right=1, call=2,
+The correct output is "right".
+What is the step or steps to generate the output
+When your solution solves the simple scenario, extend it to include another case.
+A similar case is left and right are not equal but they are both equally near.
+Consider the case left=3, right=1, call=2.  Again we should return "right"
+Adapt your first step to include this case
+
+You might notice that
+return "right"
+will work for both cases without any checking.
+
+Lets add another case to consider so we will require us to check the value of left and right.
+A new case left=3, right=0, call=2.
+
+Step 6.  Check your steps.
+Step 7.  Translate into code. (optional)
+
