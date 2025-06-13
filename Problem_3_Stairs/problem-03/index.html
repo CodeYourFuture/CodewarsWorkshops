@@ -32,9 +32,10 @@
 <h2 is-upgraded>What you should already know</h2>
 <p>You should have attended the previous two problem solving sessions.  You will have learned the outline procedure for solving problems by:</p>
 <ol type="i">
-<li>Understanding</li>
+<li>Understanding what the problem statement is asking you to do</li>
 <li>Using abstraction to identify what is important</li>
 <li>Using decomposition to break the problem down into smaller problems.</li>
+<li>Solve the smaller problems, one at a time</li>
 </ol>
 <p> You will get more practice on that today. </p>
 <h2 class="checklist" is-upgraded>What you&#39;ll learn</h2>
@@ -55,7 +56,7 @@
         <p>Todays problem can be found here: <a href="https://www.codewars.com/kata/5b4e779c578c6a898e0005c5" target="_blank">https://www.codewars.com/kata/5b4e779c578c6a898e0005c5</a>.</p>
 <p>After the class finishes, you should submit a solution to the problem using the link above.</p>
 <h2 is-upgraded>Story</h2>
-<p>The output of this problem is a drawing of some stairs.</p>
+<p>We want to output a drawing of some stairs.</p>
 <h2 is-upgraded>Problem</h2>
 <p>Given a number n, draw stairs using the letter &#34;I&#34;, n tall and n wide, with the tallest in the top left.</p>
 <h2 is-upgraded>Examples:</h2>
@@ -111,14 +112,16 @@
         <ul>
 <li>The input to the function is <code>n</code>, representing the number of steps.</li>
 <li>The function should return the complete string (although we could optionally print it before returning the string).</li>
-<li>We are building up a string containing only the character, <code>space</code>, <code>I</code>, and <code>\n</code>.  There will be exactly <code>n</code> occurences of <code>I</code> in each string.</li>
+<li>We are building up a string containing only the characters; <code>space</code>, <code>I</code>, and <code>\n</code>.</li>
+<li>There will be exactly <code>n</code> occurences of <code>I</code> in each string.</li>
+<li>Every <code>I</code> except the final one will be followed by a <code>\n</code> and a number of spaces to correctly format the string.</li>
 </ul>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="Understand the examples" duration="0">
-        <p>We care given two examples.  Here they are again.</p>
+        <p>We are given two examples.  Here they are again.</p>
 <p>For example, <code>n = 3</code> would return:</p>
 <pre><code>&#34;I\n␣I\n␣␣I&#34;
 </code></pre>
@@ -182,15 +185,15 @@
       </google-codelab-step>
     
       <google-codelab-step label="Our decomposition" duration="0">
-        <p><strong>Step 1</strong>: There is a simple version of the problem that we can solve first.  Ignore all characters except the <code>I</code> and generate and return a string containing the correct number if <code>I</code> characters.</p>
-<p><strong>Step 2</strong>:  Modify our solution to step 2 so that the correct number of <code>\n</code> characters are added.</p>
-<p><strong>Step 3</strong>:  Modify our solution to step 1 so that the correct number of spaces are added.</p>
+        <p><strong>Step 1</strong>: There is a simple version of the problem that we can solve first.  Ignore all characters except the <code>I</code> and generate and return a string containing the correct number of <code>I</code> characters.  This will be our <strong>version 1</strong>.</p>
+<p><strong>Step 2</strong>:  Modify our solution to step 2 so that the correct number of <code>\n</code> characters are added.  This will be our <strong>version 2</strong>.</p>
+<p><strong>Step 3</strong>:  Modify our solution to step 1 so that the correct number of spaces are added.  This will be our <strong>version 3</strong> (final version).</p>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="A solution to Step 1" duration="0">
-        <p>In this version (we will call it <strong>version 1</strong>) we are going to return a string containing only the correct number of <code>I</code> characters.</p>
+        <p>In version 1, we are going to return a string containing only the correct number of <code>I</code> characters.</p>
 <ul>
 <li><code>n=0</code> we need to return <code>""</code></li>
 <li><code>n=1</code> we need to return <code>"I"</code></li>
@@ -218,10 +221,11 @@
       </google-codelab-step>
     
       <google-codelab-step label="The code for Version 1" duration="0">
-        <p>Here is the code for version `:</p>
+        <p>Here is the code for version 1:</p>
 <pre><code language="language-javascript" class="language-javascript">function drawStairs(n) {
 	let result = &#34;&#34;;
-	if (n &lt; 1) return result; // nothing to do
+	if (n &lt; 1) return result; // nothing to do, the function returns here
+	// we only get past the above line when n &gt;= 1, we don&#39;t need an else
 	let iCount = 0;
 	while (iCount &lt; n) {
 		result = result.concat(&#34;I&#34;);
@@ -234,15 +238,15 @@
 </code></pre>
 <p>If we run version 1 in codewars we will see the following output: <img alt="Version 1 Output" src="img/b72744f5cf0a06a7.png"></p>
 <p>Version 1 passes the test for <code>n=1</code>.  It fails when <code>n=3</code> and <code>n=5</code> but we expected that.  If you read the message printed for the 3-step test, it says</p>
-<pre><code>expected &#39;III&#39; to equal &#39;I\n I\n  I&#39;
-</code></pre>
+<pre>expected &#39;III&#39; to equal &#39;I\n I\n  I&#39;
+</pre>
 <p>We can see that version 1 is doing exactly what we intended.  In the 3-step test, version 1 returns a string containing three <code>I</code> characters.  In the 5-step test, version 1 returns a string containing five <code>I</code> characters.</p>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="Develop a solution to step 2." duration="0">
-        <p>We will call this version 2.  It will return strings containing only <code>I</code> and <code>\n</code> characters.  Here is what we are aiming at:</p>
+        <p>Version 2 will return strings containing only <code>I</code> and <code>\n</code> characters.  Here is what we are aiming at:</p>
 <ul>
 <li><code>n=0</code> we need to return <code>""</code></li>
 <li><code>n=1</code> we need to return <code>"I"</code></li>
@@ -297,9 +301,11 @@
       </google-codelab-step>
     
       <google-codelab-step label="Adding the right number of spaces" duration="0">
-        <p>Here is the code you should have written:</p>
-<pre><code>if (iCount &lt; n) {
+        <p>Here is the code to add the right number of spaces:</p>
+<pre><code>// add the \n when required
+if (iCount &lt; n) {
 	result = result.concat(&#34;\n&#34;);
+	// add the spaces too
 	let spaceCount = 0;
 	while (spaceCount &lt; iCount) {
 		result = result.concat(&#34; &#34;);
@@ -307,6 +313,22 @@
 	}
 }
 </code></pre>
+<p>You might have written the following:</p>
+<pre><code>// add the \n when required
+if (iCount &lt; n) {
+	result = result.concat(&#34;\n&#34;);
+}
+// now add the spaces
+if (iCount &lt; n) {
+	let spaceCount = 0;
+	while (spaceCount &lt; iCount) {
+		result = result.concat(&#34; &#34;);
+		spaceCount = spaceCount + 1;
+	}
+}
+</code></pre>
+<p>but we don&#39;t need the second <code>if</code> statement because both <code>if</code> statements test whether <code>(iCount < n)</code> and the neither <code>if</code> statement changes <code>iCount</code> or <code>n</code>.  Therefore we can merge the two into one <code>if</code> statement.</p>
+<p>One <code>if</code> statement is simpler than two, simpler is almost always better.</p>
 
 
       </google-codelab-step>

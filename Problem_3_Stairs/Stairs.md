@@ -19,9 +19,10 @@ This series of problem solving exercises are based on problems found on Codewars
 
 You should have attended the previous two problem solving sessions.  You will have learned the outline procedure for solving problems by:
 <ol type="i">
-<li>Understanding</li>
+<li>Understanding what the problem statement is asking you to do</li>
 <li>Using abstraction to identify what is important</li>
 <li>Using decomposition to break the problem down into smaller problems.</li>
+<li>Solve the smaller problems, one at a time</li>
 </ol>
 You will get more practice on that today.
 
@@ -47,7 +48,7 @@ After the class finishes, you should submit a solution to the problem using the 
 
 ### Story
 
-The output of this problem is a drawing of some stairs.
+We want to output a drawing of some stairs.
 
 ### Problem
 
@@ -108,12 +109,14 @@ function drawStairs(n) {
 
 * The input to the function is `n`, representing the number of steps.
 * The function should return the complete string (although we could optionally print it before returning the string).
-* We are building up a string containing only the character, `space`, `I`, and `\n`.  There will be exactly `n` occurences of `I` in each string.
+* We are building up a string containing only the characters; `space`, `I`, and `\n`.  
+* There will be exactly `n` occurences of `I` in each string.
+* Every `I` except the final one will be followed by a `\n` and a number of spaces to correctly format the string.
 
 
 ## Understand the examples
 
-We care given two examples.  Here they are again.
+We are given two examples.  Here they are again.
 
 For example, `n = 3` would return:
 ```
@@ -183,15 +186,15 @@ It is useful to note these patterns because we can use them when designing the s
 	
 ## Our decomposition
 
-**Step 1**: There is a simple version of the problem that we can solve first.  Ignore all characters except the `I` and generate and return a string containing the correct number if `I` characters.
+**Step 1**: There is a simple version of the problem that we can solve first.  Ignore all characters except the `I` and generate and return a string containing the correct number of `I` characters.  This will be our **version 1**.
 
-**Step 2**:  Modify our solution to step 2 so that the correct number of `\n` characters are added.
+**Step 2**:  Modify our solution to step 2 so that the correct number of `\n` characters are added.  This will be our **version 2**.
 
-**Step 3**:  Modify our solution to step 1 so that the correct number of spaces are added.
+**Step 3**:  Modify our solution to step 1 so that the correct number of spaces are added.  This will be our **version 3** (final version).
 
 ## A solution to Step 1
 
-In this version (we will call it **version 1**) we are going to return a string containing only the correct number of `I` characters.
+In version 1, we are going to return a string containing only the correct number of `I` characters.
 * `n=0` we need to return `""`
 * `n=1` we need to return `"I"`
 * `n=2` we need to return `"II"`
@@ -212,11 +215,12 @@ Here is a design for version 1.
 
 ## The code for Version 1
 
-Here is the code for version `:
+Here is the code for version 1:
 ```javascript
 function drawStairs(n) {
 	let result = "";
-	if (n < 1) return result; // nothing to do
+	if (n < 1) return result; // nothing to do, the function returns here
+	// we only get past the above line when n >= 1, we don't need an else
 	let iCount = 0;
 	while (iCount < n) {
 		result = result.concat("I");
@@ -232,14 +236,14 @@ If we run version 1 in codewars we will see the following output:
 ![Version 1 Output](images/version_1.png)
 
 Version 1 passes the test for `n=1`.  It fails when `n=3` and `n=5` but we expected that.  If you read the message printed for the 3-step test, it says
-```
+```console
 expected 'III' to equal 'I\n I\n  I'
 ```
 We can see that version 1 is doing exactly what we intended.  In the 3-step test, version 1 returns a string containing three `I` characters.  In the 5-step test, version 1 returns a string containing five `I` characters.
 
 ##  Develop a solution to step 2.
 
-We will call this version 2.  It will return strings containing only `I` and `\n` characters.  Here is what we are aiming at:
+Version 2 will return strings containing only `I` and `\n` characters.  Here is what we are aiming at:
 
 * `n=0` we need to return `""`
 * `n=1` we need to return `"I"`
@@ -286,11 +290,13 @@ We should notice that
 
 ## Adding the right number of spaces
 
-Here is the code you should have written:
+Here is the code to add the right number of spaces:
 
 ```
+// add the \n when required
 if (iCount < n) {
 	result = result.concat("\n");
+	// add the spaces too
 	let spaceCount = 0;
 	while (spaceCount < iCount) {
 		result = result.concat(" ");
@@ -298,6 +304,25 @@ if (iCount < n) {
 	}
 }
 ```
+
+You might have written the following:
+```
+// add the \n when required
+if (iCount < n) {
+	result = result.concat("\n");
+}
+// now add the spaces
+if (iCount < n) {
+	let spaceCount = 0;
+	while (spaceCount < iCount) {
+		result = result.concat(" ");
+		spaceCount = spaceCount + 1;
+	}
+}
+```
+but we don't need the second `if` statement because both `if` statements test whether `(iCount < n)` and the neither `if` statement changes `iCount` or `n`.  Therefore we can merge the two into one `if` statement.
+
+One `if` statement is simpler than two, simpler is almost always better.
 
 ## Summary
 
