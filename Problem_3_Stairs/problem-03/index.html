@@ -228,9 +228,11 @@
 	// we only get past the above line when n &gt;= 1, we don&#39;t need an else
 	let iCount = 0;
 	while (iCount &lt; n) {
+		// append an I
 		result = result.concat(&#34;I&#34;);
-		// or ...
-		// result = result + &#34;I&#34;;
+			// or you could have ...
+			// result = result + &#34;I&#34;;
+		// update the count
 		iCount = iCount + 1;
 	}
 	return result;
@@ -256,7 +258,9 @@
 </ul>
 <p>We note that when we add an <code>I</code>, if it was not the last <code>I</code>, we add a <code>\n</code>.  Here is the relevant code with a comment added:</p>
 <pre><code>while (iCount &lt; n) {
+	// append an I
 	result = result.concat(&#34;I&#34;);
+	// update the count
 	iCount = iCount + 1;
 	// if that wasn&#39;t the last I, append a \n
 }

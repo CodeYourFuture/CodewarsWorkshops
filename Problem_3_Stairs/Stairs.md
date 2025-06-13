@@ -224,9 +224,11 @@ function drawStairs(n) {
 	// we only get past the above line when n >= 1, we don't need an else
 	let iCount = 0;
 	while (iCount < n) {
+		// append an I
 		result = result.concat("I");
-		// or ...
-		// result = result + "I";
+			// or you could have ...
+			// result = result + "I";
+		// update the count
 		iCount = iCount + 1;
 	}
 	return result;
@@ -255,7 +257,9 @@ Version 2 will return strings containing only `I` and `\n` characters.  Here is 
 We note that when we add an `I`, if it was not the last `I`, we add a `\n`.  Here is the relevant code with a comment added:
 ```
 while (iCount < n) {
+	// append an I
 	result = result.concat("I");
+	// update the count
 	iCount = iCount + 1;
 	// if that wasn't the last I, append a \n
 }
