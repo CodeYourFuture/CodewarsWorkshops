@@ -189,9 +189,9 @@ It is useful to note these patterns because we can use them when designing the s
 
 **Step 1**: There is a simple version of the problem that we can solve first.  Ignore all characters except the `I` and generate and return a string containing the correct number of `I` characters.  This will be our **version 1**.
 
-**Step 2**:  Modify our solution to step 2 so that the correct number of `\n` characters are added.  This will be our **version 2**.
+**Step 2**:  Modify version 1 so that the correct number of `\n` characters are added.  This will be our **version 2**.
 
-**Step 3**:  Modify our solution to step 1 so that the correct number of spaces are added.  This will be our **version 3** (final version).
+**Step 3**:  Modify version 2 so that the correct number of spaces are added.  This will be our **version 3** (final version).
 
 ## A solution to Step 1
 
