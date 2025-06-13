@@ -180,7 +180,8 @@ It is useful to note these patterns because we can use them when designing the s
 
 ## Decomposing the problem
 
-1.  Can you decompose this problem into smaller ones?  Think about the characters we are adding or think about the different values for `n`.<br/>
+1.  Can you decompose this problem into smaller ones?<br/>
+	**Hint**: Think about the characters we are adding to the result string. Decomposing a problem is all about not trying to do everything at once.<br/>
 	Describe your decomposition in English without reference to programming code of any kind, although you might want to use variable names to refer to certain values. 
 1.  Discuss as group the different decompositions you have come up with.  Resolve any differences.
 	
