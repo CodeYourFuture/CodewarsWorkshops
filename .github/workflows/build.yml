@@ -10,6 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install claat
-        run: mkdir /tmp/claat && curl --fail -L -o /tmp/claat/claat https://github.com/googlecodelabs/tools/releases/download/v2.2.6/claat-linux-amd64 && chmod 0755 /tmp/claat/claat
+        run: ./download-claat-linux.sh
       - name: Build
         run: PATH="/tmp/claat:${PATH}" python3 build.py

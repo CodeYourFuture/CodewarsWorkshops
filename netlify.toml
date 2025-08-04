@@ -1,0 +1,7 @@
+[build]
+ignore = "exit 1" #always build on PR even if you can't detect changes in this folder
+publish = "build"
+command = './download-claat-linux.sh && PATH="/tmp/claat:${PATH}" python3 ./build.py'
+
+[build.environment]
+PYTHON_VERSION="3.13"
