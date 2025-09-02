@@ -2,7 +2,6 @@ import glob
 import os
 import shutil
 import subprocess
-import time
 
 
 def main():
@@ -33,6 +32,10 @@ def main():
             raise RuntimeError(f"Multiple files defined the same problem {problem_id}: {problem_file} and {problems[problem_id]}")
 
         problems[problem_id] = problem_file
+
+        starter_dir = os.path.join(problem_dir, "starter-code")
+        if os.path.exists(starter_dir):
+            shutil.make_archive(os.path.join(build_dir, problem_id, "starter-code"), "zip", starter_dir)
 
     index = """<!DOCTYPE html>
 <html>
