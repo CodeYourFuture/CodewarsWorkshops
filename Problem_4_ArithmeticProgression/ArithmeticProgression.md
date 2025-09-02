@@ -219,7 +219,7 @@ const difference = range / (len + 1 - 1);
 // const difference = range / len;
 ```
 
-Can you write a solution to the whole problem now by adding the code for step 2? You can find some starter code here: [Problem4StarterCode.zip](Problem4StarterCode.zip).
+Can you write a solution to the whole problem now by adding the code for step 2? You can find some starter code here: [starter-code.zip](starter-code.zip).
 
 To use the starter code:
 
